@@ -33,7 +33,7 @@ After installation, make sure to commit the `.ddev` directory to version control
 | Command | Description |
 | ------- | ----------- |
 | `ddev launch :9201` | Open OpenSearch in your browser |
-| `ddev launch :5602` | Open OpenSearch Dashboards in your browser |
+| Open `https://<projectname>-opensearch.ddev.site` | Open OpenSearch Dashboards in your browser |
 | `ddev describe` | View service status and used ports for OpenSearch |
 | `ddev logs -s opensearch` | View OpenSearch logs |
 | `ddev logs -s opensearch-dashboards` | View OpenSearch Dashboards logs |

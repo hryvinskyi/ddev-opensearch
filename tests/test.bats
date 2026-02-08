@@ -48,12 +48,12 @@ health_checks() {
   assert_success
   assert_output --partial "The OpenSearch Project"
 
-  run curl -sfI https://${PROJNAME}.ddev.site:5602
+  run curl -sfI https://${PROJNAME}-opensearch.ddev.site
   assert_success
   assert_output --partial "HTTP/2 302"
   assert_output --partial "location: /app/home"
 
-  run curl -sfL https://${PROJNAME}.ddev.site:5602
+  run curl -sfL https://${PROJNAME}-opensearch.ddev.site
   assert_success
   assert_output --partial "OpenSearch Dashboards"
 

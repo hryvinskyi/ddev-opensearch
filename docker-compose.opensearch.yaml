@@ -46,8 +46,8 @@ services:
       - VIRTUAL_HOST=${DDEV_SITENAME}-opensearch.${DDEV_TLD:-ddev.site}
       - OPENSEARCH_HOSTS=http://ddev-${DDEV_PROJECT}-opensearch:9200
       - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true" # disables security plugin
-      - HTTP_EXPOSE=80:5601
-      - HTTPS_EXPOSE=443:5601
+      - HTTP_EXPOSE=5601:5601
+      - HTTPS_EXPOSE=5602:5601
     expose:
       - 5601
     labels:

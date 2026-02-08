@@ -1,5 +1,8 @@
 name: ddev-opensearch
 
+yaml_read_files:
+  projectConfig: .ddev/config.yaml
+
 project_files:
   - docker-compose.opensearch.yaml
 
@@ -16,5 +19,17 @@ pre_install_actions:
         exit 2
       fi
     fi
+
+post_install_actions:
+  - |
+    #ddev-nodisplay
+    #ddev-description:Registering OpenSearch Dashboards hostname
+    printf '#ddev-generated\nadditional_hostnames:\n  - {{ .projectConfig.name }}-opensearch\n' > "${DDEV_APPROOT}/.ddev/config.opensearch-dashboards.yaml"
+
+removal_actions:
+  - |
+    #ddev-nodisplay
+    #ddev-description:Removing OpenSearch Dashboards hostname configuration
+    rm -f "${DDEV_APPROOT}/.ddev/config.opensearch-dashboards.yaml"
 
 ddev_version_constraint: '>= v1.24.3'
